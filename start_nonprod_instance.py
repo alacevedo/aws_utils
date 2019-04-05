@@ -21,7 +21,7 @@ def lambda_handler(event, context):
     try:
         _start_response = _cli.start_instances(
             InstanceIds = _instances,
-            DryRun = True
+            DryRun = False
         )
         print _start_response
         return {
