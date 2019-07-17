@@ -2,6 +2,11 @@ import json
 import boto3
 from botocore.exceptions import ClientError, ParamValidationError
 
+# This function is useful when you want to take a snapshot based on an event
+# I use it to take snapshots on the last day of the month using the following
+# cloudwatch schedule expression: 0 8 L * ? *
+
+
 def lambda_handler(event, context):
     _cli = boto3.client('ec2')
     _volumes =  _cli.describe_volumes(
